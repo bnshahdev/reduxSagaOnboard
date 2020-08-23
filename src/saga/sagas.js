@@ -8,7 +8,7 @@ function* fetchSummary() {
     console.log("saga -> fetch");
     const summaryData = yield call(getSummary);
     console.log("summaryData ->" + JSON.stringify(summaryData.data.Global));
-    yield put({ type: actions.UPDATE_SUMMARY, payload: summaryData });
+    yield put({ type: actions.UPDATE_SUMMARY, payload: summaryData.data });
   } catch (e) {
     console.log(e);
   }
