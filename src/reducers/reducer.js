@@ -6,7 +6,7 @@ const DEFAULT_STATE = {
 
 export default function reducer(state = DEFAULT_STATE, action = {}) {
   switch (action.type) {
-    case actions.FETCH_SUMMARY:
+    case actions.UPDATE_SUMMARY:
       return {
         ...state,
         summaryData: action.payload,

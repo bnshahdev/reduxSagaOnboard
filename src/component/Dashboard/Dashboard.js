@@ -6,6 +6,12 @@ import { connect } from "react-redux";
 import * as actions from "./Actions";
 
 class Dashboard extends React.Component {
+  constructor() {
+    this.state = {
+      summary: [],
+    };
+  }
+
   componentDidMount() {
     //trigger action
     this.props.fetchSummary();
@@ -53,4 +59,8 @@ const localStyle = {
   },
 };
 
-export default connect(null, actions)(Dashboard);
+const mapStateToProps = (state) => ({
+  summary: state.summaryData,
+});
+
+export default connect(mapStateToProps, actions)(Dashboard);

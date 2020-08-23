@@ -1,1 +1,2 @@
 export const FETCH_SUMMARY = "FETCH_SUMMARY";
+export const UPDATE_SUMMARY = "UPDATE_SUMMARY";
