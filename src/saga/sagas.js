@@ -1,13 +1,11 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getSummary } from "../server/server";
-
 import * as actions from "../actions/actions";
 
 function* fetchSummary() {
   try {
     console.log("saga -> fetch");
     const summaryData = yield call(getSummary);
-    console.log("summaryData ->" + JSON.stringify(summaryData.data.Global));
     yield put({ type: actions.UPDATE_SUMMARY, payload: summaryData.data });
   } catch (e) {
     console.log(e);

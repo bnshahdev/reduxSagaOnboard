@@ -7,9 +7,6 @@ import * as actions from "./Actions";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      summary: [],
-    };
   }
 
   componentDidMount() {
@@ -28,13 +25,13 @@ class Dashboard extends React.Component {
         <View style={localStyle.topContainer}>
           <ScrollView horizontal={true} style={{ height: 60 }}>
             <Text style={localStyle.title}>
-              Confirmed: {this.props.globalData.TotalConfirmed}
+              Confirmed: {this.props.globalData.TotalConfirmed || ""}
             </Text>
             <Text style={localStyle.title}>
-              Deaths: {this.props.globalData.TotalDeaths}
+              Deaths: {this.props.globalData.TotalDeaths || ""}
             </Text>
             <Text style={localStyle.title}>
-              Recovered: {this.props.globalData.TotalRecovered}
+              Recovered: {this.props.globalData.TotalRecovered || ""}
             </Text>
           </ScrollView>
         </View>
@@ -84,8 +81,8 @@ const localStyle = {
 };
 
 const mapStateToProps = (state) => ({
-  globalData: state.summaryData.Global,
-  countryData: state.summaryData.Countries,
+  globalData: state.summaryData.Global || {},
+  countryData: state.summaryData.Countries || {},
 });
 
 export default connect(mapStateToProps, actions)(Dashboard);
